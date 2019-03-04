@@ -1,14 +1,17 @@
 #include <stdio.h>
 
+#define NK 1000
+const int NN =50;
+
 typedef double REAL;
 typedef double distribution[15];
 typedef struct{
-    double V[25];
-    double gk[25];
+    double V[NK];
+    double gk[NK];
     int a;
 } agents;
 
-
+int G;
 int main(){
     
     // Declare variable
@@ -58,8 +61,43 @@ int main(){
     A2[0][1]= 4;
     printf("%d\n",A2[0][1]);
     
+    // Checking the scope
+    int c = 2;
+    //for(;;)
+    {
+        int c;
+        c= 25;
+        
+    }
+    printf("%d",c);
     
+    //SYNTAX for(initialization;expression;increment)
+    // i=i+1 <-> i++
+    //
+    printf("\nInitializing Array A:\n");
+    for(int i=0;i<10;i++)
+    {
+        A[i] = i;
+        printf("%d ",A[i]);
+    }
+    printf("\n");
     
+    // While loop
+    printf("\nInitializing Array A with while:\n");
+    int i=0; //initialization
+    while(i<10)// expression
+    {
+        A[i] = A[i]+i;
+        printf("%d ",A[i]);
+        // Increment
+        i++;
+    }
+    
+    for(int i=0;5;i++)
+    {
+        printf("%d ",i);
+    }
+    printf("\n");
     
     return 1;
     
