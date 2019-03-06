@@ -17,6 +17,12 @@ double product(double a,double b)
     return p;
 }
 
+double product2(double *a,double *b)
+{
+    double p= a*b;
+    return p;
+}
+
 int factorial(int n){
     int output;
     if(n<=0){
@@ -141,6 +147,11 @@ int main(){
     int f= factorial(N);
     printf("\nFactorial: %d\n",f);
     
+    // Pointers
+    double *p;
+    p = &h;
+    printf("\nAddress p: %p\n",p);
+    double product2= product2(&h,&g);
     return 1;
     
 }
