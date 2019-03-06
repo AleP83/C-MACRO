@@ -11,7 +11,33 @@ typedef struct{
     int a;
 } agents;
 
-int G;
+double product(double a,double b)
+{
+    double p= a*b;
+    return p;
+}
+
+int factorial(int n){
+    int output;
+    if(n<=0){
+        printf("Make sure your number is positive");
+        return -1;
+    }
+    else{
+        if(n>1)
+        {
+            output = n * factorial(n-1);
+        }
+        else
+        {
+            output = 1;
+        }
+        return output;
+    }
+
+}
+
+
 int main(){
     
     // Declare variable
@@ -93,11 +119,27 @@ int main(){
         i++;
     }
     
+    
+    double h,g;
+    h=5.5;
+    g=3.2;
+    
+    double result;
+    result = product(h,g);
+    printf("\nProduct: %d\n",(int) result);
+    // Infinite Loop
+    /*
     for(int i=0;5;i++)
     {
         printf("%d ",i);
     }
     printf("\n");
+    */
+    
+    int N;
+    N = 5;
+    int f= factorial(N);
+    printf("\nFactorial: %d\n",f);
     
     return 1;
     
