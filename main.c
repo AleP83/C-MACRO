@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-#define NK 1000
+#define NK 10
 const int NN =50;
 
+typedef double * POINTERFORDUMMY;
 typedef double REAL;
 typedef double distribution[15];
 typedef struct{
@@ -11,16 +12,39 @@ typedef struct{
     int a;
 } agents;
 
+typedef int capitalgrid[NK];
+
+//result = product(h,g);
 double product(double a,double b)
 {
     double p= a*b;
     return p;
 }
-
 double product2(double *a,double *b)
 {
-    double p= a*b;
+    double p= (*a)*(*b);
     return p;
+}
+void product3(POINTERFORDUMMY a,double *b,double *p)
+{
+    *p = (*a)*(*b);
+}
+
+void initializeK(int *a){
+    *a=1;
+    for(int i=0;i<NK;i++){
+        //*(a+i)= i;
+        a[i]= i;
+    }
+        
+}
+
+void initializeK2(capitalgrid a){
+    for(int i=0;i<NK;i++){
+        //*(a+i)= i;
+        a[i]= i+10;
+    }
+    
 }
 
 int factorial(int n){
@@ -41,6 +65,10 @@ int factorial(int n){
         return output;
     }
 
+}
+
+void initializeFirms(agents *Firms_){
+    Firms_->a=4;
 }
 
 
@@ -132,7 +160,7 @@ int main(){
     
     double result;
     result = product(h,g);
-    printf("\nProduct: %d\n",(int) result);
+    printf("\nProduct: %lf\n",result);
     // Infinite Loop
     /*
     for(int i=0;5;i++)
@@ -151,7 +179,38 @@ int main(){
     double *p;
     p = &h;
     printf("\nAddress p: %p\n",p);
-    double product2= product2(&h,&g);
+    double result2= product2(&h,&g);
+    printf("\nProduct: %lf\n",result2);
+    
+    double result3;
+    product3(&h,&g,&result3);
+    printf("\nProduct: %lf\n",result3);
+    
+    
+    int k[NK];
+    
+    initializeK(&k[0]);
+    
+    printf("\nThe element n. %d of k: %d",0,k[0]);
+    printf("\nThe element n. %d of k: %d\n",1,k[1]);
+    printf("\n");
+    for(int i=0;i<NK;i++){
+        printf("k[%d] = %d\n",i,k[i]);
+    }
+    
+    capitalgrid k2;
+    
+    initializeK2(&k2);
+    for(int i=0;i<NK;i++){
+        printf("k[%d] = %d\n",i,k2[i]);
+    }
+    
+    Firms_.a=3;
+    printf("Firm a: %d\n",Firms_.a);
+    initializeFirms(&Firms_);
+    printf("Firm a: %d\n",Firms_.a);
+    
+    
     return 1;
     
 }
