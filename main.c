@@ -1,18 +1,5 @@
 #include <stdio.h>
-
-#define NK 10
-const int NN =50;
-
-typedef double * POINTERFORDUMMY;
-typedef double REAL;
-typedef double distribution[15];
-typedef struct{
-    double V[NK];
-    double gk[NK];
-    int a;
-} agents;
-
-typedef int capitalgrid[NK];
+#include "macro_library.h"
 
 //result = product(h,g);
 double product(double a,double b)
