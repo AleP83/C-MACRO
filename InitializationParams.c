@@ -5,7 +5,7 @@
 //  Created by Alessandro Peri on 18/03/2019.
 //  Copyright © 2019 Alessandro Peri. All rights reserved.
 //
-
+#include<stdlib.h>
 #include <stdio.h>
 #include "usr_decl.h"
 
@@ -41,13 +41,14 @@ void InitializationParms(Parms_type *Parms_){
     {
         printf("Bingo: We read all the parameters: Total %d\n",i);
     }
+#ifdef SHOWPARAMETERS
     rewind(fp);
     printf("\n");
     for(int i=0;i<N_PARMS;i++)
     {
         printf("v[%d]=%lf\n",i,v[i]);
     }
-    
+#endif
     
     // Check there are enough parameters
     i=0;

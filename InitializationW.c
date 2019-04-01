@@ -10,7 +10,7 @@
 #include "usr_decl.h"
 #include <math.h>
 
-void InitializationK(REAL *K,Parms_type *Parms_){
+void InitializationW(REAL *W,REAL *K,Parms_type *Parms_){
     
     // Define kmin and kmax
     REAL kss;

@@ -20,8 +20,19 @@ typedef struct {
 
 void InitializationParms(Parms_type *);
 void PrintParms(Parms_type *);
-void InitializationK(REAL *K);
+void InitializationK(REAL *,Parms_type *);
+void InitializationW(REAL *,REAL *,Parms_type *);
 
 #define N_PARMS 5
-#define NK 100
 #endif /* usr_decl_h */
+
+
+// Capital grids definitions
+#define NK 100
+static double alpha_shrink_kss= 0.9;
+static double alpha_expand_kss= 1.1;
+static int K_MODE = 0;
+// 0 trivial: 0-100
+// 1 kss steady state
+//#define SHOWPARAMETERS
+//#define SHOWK

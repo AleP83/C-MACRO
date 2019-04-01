@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include "usr_decl.h"
 
-typedef double REAL;
-
 int main(){
     
     // Declare Parameter STructure
@@ -16,14 +14,18 @@ int main(){
     */
     InitializationParms(&Parms_);
     printf("\n");
+#ifdef SHOWPARAMETERS
     PrintParms(&Parms_);
-    
+#endif
     // Initialization of Capital Grid
-    REAL K[NK];
-    InitializationK(&K[0]);
+    REAL K[NK],W[NK];
+    InitializationK(&K[0],&Parms_);
+    // Initialization of Wealth Function
+    InitializationW(&W[0],&K[0],&Parms_);
+    
     // Initialization of Value Function
     
-    // Initialization of Wealth Vector
+    
     
     
     
