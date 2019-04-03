@@ -40,13 +40,16 @@ void InitializationK(REAL *K,Parms_type *Parms_){
     //printf("\n");
 #ifdef SHOWK
     printf("\n");
+#endif
     for(int i=0;i<n;i++){
         K[i]=KMIN+i*deltap;
+#ifdef SHOWK
         printf("%lf ",K[i]);
+#endif
     }
+#ifdef SHOWK
     printf("\n");
 #endif
-    
     
     
 }
