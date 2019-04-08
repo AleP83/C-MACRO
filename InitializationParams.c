@@ -58,7 +58,8 @@ void InitializationParms(Parms_type *Parms_){
     Parms_->beta=v[i];i++;
     Parms_->delta=v[i];i++;
     Parms_->gamma=v[i];i++;
-    Parms_->r=v[i];
+    Parms_->r=v[i];i++;
+    Parms_->toll_dV=v[i];
     // ****************************
     
     fclose(fp);
@@ -73,4 +74,5 @@ printf("beta: %lf\n",(*Parms_).beta);
 printf("delta: %lf\n",Parms_->delta);
 printf("gamma: %lf\n",Parms_->gamma);
 printf("r: %lf\n",Parms_->r);
+printf("toll_dV: %lf\n",Parms_->toll_dV);
 }

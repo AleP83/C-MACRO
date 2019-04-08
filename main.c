@@ -27,8 +27,9 @@ int main(){
     InitializationV(&Ri_.V0[0],&Ri_.W[0],&Parms_);
     
     // Initialization of Value Function
-    int check = Equilibrium(&Ri_,Grids_,&Parms_);
+    int check = Equilibrium(&Ri_,&Grids_,&Parms_);
     
+    printf("\nCheck: %d",check);
     return 0;
     
 }

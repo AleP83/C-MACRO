@@ -19,6 +19,7 @@ typedef struct {
     REAL delta;
     REAL r;
     REAL gamma;
+    REAL toll_dV;
 } Parms_type;
 
 typedef struct {
@@ -40,7 +41,7 @@ void InitializationW(REAL *,REAL *,Parms_type *);
 void InitializationV(REAL *,REAL *,Parms_type *);
 int Equilibrium(Agents_type *,Grids_type *,Parms_type *);
 
-#define N_PARMS 5
+#define N_PARMS 6
 #endif /* usr_decl_h */
 
 
@@ -50,7 +51,7 @@ static double alpha_expand_kss= 1.1;
 static int K_MODE = 0;
 // 0 trivial: 0-100
 // 1 kss steady state
-//#define SHOWPARAMETERS
+#define SHOWPARAMETERS
 //#define SHOWK
 //#define SHOWW
 //#define SHOWV
