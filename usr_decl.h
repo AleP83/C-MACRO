@@ -9,6 +9,9 @@
 #ifndef usr_decl_h
 #define usr_decl_h
 
+#define NK 100
+
+
 typedef double REAL;
 typedef struct {
     REAL alpha;
@@ -18,17 +21,30 @@ typedef struct {
     REAL gamma;
 } Parms_type;
 
+typedef struct {
+    REAL V[NK];
+    REAL V0[NK];
+    REAL W[NK];
+    int G[NK];
+} Agents_type;
+typedef struct {
+    REAL K[NK];
+} Grids_type;
+
+
+
 void InitializationParms(Parms_type *);
 void PrintParms(Parms_type *);
 void InitializationK(REAL *,Parms_type *);
 void InitializationW(REAL *,REAL *,Parms_type *);
+void InitializationV(REAL *,REAL *,Parms_type *);
+int Equilibrium(Agents_type *,Grids_type *,Parms_type *);
 
 #define N_PARMS 5
 #endif /* usr_decl_h */
 
 
 // Capital grids definitions
-#define NK 100
 static double alpha_shrink_kss= 0.9;
 static double alpha_expand_kss= 1.1;
 static int K_MODE = 0;
@@ -36,3 +52,5 @@ static int K_MODE = 0;
 // 1 kss steady state
 //#define SHOWPARAMETERS
 //#define SHOWK
+//#define SHOWW
+//#define SHOWV

@@ -5,6 +5,9 @@ int main(){
     
     // Declare Parameter STructure
     Parms_type Parms_;
+    Agents_type Ri_;
+    Grids_type Grids_;
+    
     /*
     Parms_.beta  = 0.96;
     Parms_.alpha = 0.3;
@@ -18,18 +21,14 @@ int main(){
     PrintParms(&Parms_);
 #endif
     // Initialization of Capital Grid
-    REAL K[NK],W[NK];
-    InitializationK(&K[0],&Parms_);
+    InitializationK(&Grids_.K[0],&Parms_);
     // Initialization of Wealth Function
-    InitializationW(&W[0],&K[0],&Parms_);
+    InitializationW(&Ri_.W[0],&Grids_.K[0],&Parms_);
+    InitializationV(&Ri_.V0[0],&Ri_.W[0],&Parms_);
     
     // Initialization of Value Function
+    int check = Equilibrium(&Ri_,Grids_,&Parms_);
     
-    
-    
-    
-    
-    
-    return 1;
+    return 0;
     
 }
