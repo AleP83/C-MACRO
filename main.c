@@ -9,5 +9,9 @@ int main(){
     scanf("%d",&a);
     printf("%c\n",a);
     
+    
+    
+    
+    
     return 1;
 }
