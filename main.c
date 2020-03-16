@@ -1,136 +1,82 @@
 #include <stdio.h>
+// typedef: is a directive to the precompiler (like #include)
+// typedef: create a user defined type
+// Syntax is:
+// typedef DESCRIBETHETYPE TYPEIDENFITIFER
+typedef double REAL;
+
+// Definition of a type
+typedef struct {
+    // Fields of the structure
+    double sigma; //risk aversion
+    double alpha; // share to labor
+    double delta; // depreciation
+} Parmstype;
+// Definition of a type does not create any variable!!!!
+
+
 int main(){
     
-    printf("Understanding\t Variables!\n");
-    // How can we define a variable
-    // DEfinition syntax:
-    // TYPE name_of_the_variable; (instruction)
-    // TYPE: tells you how much memory you want for storing numbers in that variable
-    // Variable_name: defines the name of the variable
+    printf("Let us learn TYPEDEF, Structure and Loops\n");
     
-    // ------------- VARIABLE DECLARATION
-    // Declaration of a Char (the smallest type)
-    char c; // TYPE: char (1Byte), name of the variable: c
-    // By writing char c i am creating a variable of size char named c
-    // Name of the variable:
-        // 1. Cannot be a keyword (char char no) (char main no)
-        // 2. Cannot start with a number!!!
-        // 3. Case sensitive!!
-    char justaname;
+    REAL d;
+    d= 1.5;
+    printf("The value in d is %f\n",d);
     
-    // ------------- VARIABLE INITIALIZATION
-    c = 'E';
-    /* There is something called ASCI codes that translates:
-    Symbols: "B"
-    into numbers (bits):
-    */
-    printf("The variable c is initialized with the value: %c\n",c);
-    printf("The variable c is initialized with the value: %d\n",c);
-    printf("The address of C is: %d\n",&c);
+    
+    
+    // Create variable of type Parmstype (create house with the design Parmstype)
+    Parmstype R_;
+    
+    // Initialization of R
+    // how do we access the fields of R_?
+    R_.sigma = 2.; // initialization of sigma
+    R_.delta = 0.1; // initialization of delta
+    R_.alpha = 0.7; // initializtion of share of output to labor
+    
+    REAL kgrid[6];
+    kgrid[0] = 1.5;
+    kgrid[2] = 2.5;
+    printf("The value in k[%d] is %lf\n",0,kgrid[0]);
+    int i = 2;
+    // int i;
+    // i=2;
+    // in short int i=2;
+    printf("The value in k[%d] is %lf\n",i,kgrid[i]);
+    // kgrid[6] does not exist
+    
+    
+    // There are Two Loops
+    // syntax of the loop
     /*
-    printf("Give me a letter: ");
-    scanf("%c",&c);
-    printf("The variable c is initialized with the value: %c\n",c);
-    printf("The variable c is initialized with the value: %d\n",c);
+     for (initialize first value of index; boolean expression; update index){
+        SCOPE
+        stuff that has to be done in each iteration of the loop
+        }
     */
-    
-    char dollar;
-    dollar = 36;
-    printf("The variable dollar is initialized with the value: %c\n",dollar);
-    
-    
-    // 2. Integers
-    // Why do we like integers:
-        // 1. In loops
-    
-    // Declaration
-    int i;
-    // Definition by assignment
-    i = 12;
-    printf("\n\n\n Let us print our first integer %d\n",i);
-    i = 12.3;
-    printf("Integer representation of float %d\n",i);
-    i = 12.7;
-    printf("Integer representation of float %d\n",i);
+    int j; // index j
+    // Infinite loop
+    /*
+    for(j=0;1;j=j+1){
+        printf("Infinite loop yeah!");
+    }
+    */
+    printf("\nLoop initialization of kgrid: ");
+    for(j=0;j<6;j=j+1){
+        kgrid[j] = j
+                   +1;
+        printf("%lf ",kgrid[j]);
+    }
+    printf("\n");
     
     
-    
-    // 3. Double
-        // All the rest!
-    double d;
-    d= 4.0;
-    printf("Double floating point %18.15lf\n",d);
-    
-    
-    // 3. Mix Integer and Doubles
+    // Address of elements of capital grid
+    i = 0;
+    printf("\nThe address of position %d of the capital grid is %p\n",i,&kgrid[i]);
+    i = 1;
+    printf("\nThe address of position %d of the capital grid is %p\n",i,&kgrid[i]);
     i = 2;
-    
-    double result;
-    result = i/d;
-    printf("Result %lf\n",result);
-    
-    int iresult;
-    iresult = i/d;
-    printf("Result %lf will return 0.5\n",iresult);
-    printf("Result %d will return 0\n",iresult);
-    
-    i=2;
-    double f2= 1/i;
-    // Step 1: 1 is integer, i is integer
-    // Step 2: division between integers (integer division) 1/2 = 0 (0.5 but I throw away after comma)
-    // Step 3: assign expression to variable f2:
-        // Expression is integer 0
-        // variable f2 is double
-        // So assign 0 followed by .000000000000
-    
-    printf("Mistake: %lf is not 0.5\n",f2);
-    
-    double f3 = 1./i;
-    printf("Implicit Conversion: %lf equals 0.5\n",f3);
-    
-    double f4 = 1./((double) i);
-    printf("Explicit Conversion: %lf equals 0.5\n",f4);
-    
-    double f5 = ((double) 1)/i;
-    printf("Explicit Conversion: %lf equals 0.5\n",f5);
-    
-    
-    
-    /*
-    int i2 = 1/i;
-    printf("Mistake: %d is not 0.5\n",i2);
-    */
-    
-    
-    // 4. Floats
-    
-    
-    
-    // DEFINE ASSIGNMENTS OPERATION
-    // Assignment operator is: = ;
-    // Variable = (Result of the Evaluation of an expression);
-    i = (3 == 2);
-    printf("Integer representation of expression %d\n",i);
-    i = (1 | 0);
-    printf("Integer representation of OR operation %d\n",i);
-    i = (1 & 0);
-    printf("Integer representation of AND operation %d\n",i);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    printf("\nThe address of position %d of the capital grid is %p\n",i,&kgrid[i]);
     
     return 1;
 }
