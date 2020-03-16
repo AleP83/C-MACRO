@@ -61,7 +61,7 @@ int main(){
         printf("Infinite loop yeah!");
     }
     */
-    printf("\nLoop initialization of kgrid: ");
+    printf("\nFor Loop initialization of kgrid: ");
     for(j=0;j<6;j=j+1){
         kgrid[j] = j
                    +1;
@@ -78,6 +78,22 @@ int main(){
     i = 2;
     printf("\nThe address of position %d of the capital grid is %p\n",i,&kgrid[i]);
     
+    // While Loop
+    printf("\n\n");
+    //for(j=0;j<6;j=j+1)
+    j=0;
+    printf("\nWhile Loop initialization of kgrid: ");
+    while(j<6){
+        
+        kgrid[j] = j
+                   +2;
+        printf("%lf ",kgrid[j]);
+        
+        j=j+1; // j++;
+    }
+    printf("\n");
+    
     return 1;
+    
 }
 
