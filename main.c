@@ -27,7 +27,6 @@ int main(){
     // Define the Capital Grid
     REAL stepk = (KMAX - KMIN) / ((REAL) NKGRID-1);
     
-    
     printf("\n");
     for(int ik = 0;ik < NKGRID;ik++){
         // Initialization
@@ -35,11 +34,82 @@ int main(){
         printf("k[%d] = %5.2lf\n",ik,Parms_.kgrid[ik]);
     }
     
+    // Initialization of the Wealth:  kα + (1 − δ)k
+    // 1. Declare the Wealth Array
+    Parms_.wealth = (REAL *) malloc(NKGRID*sizeof(REAL));
+    // Parms_.wealth: Go to the cupboard and access the field wealth
+    
+    // STEP 2. Call of the function
+    InitializationW(&Parms_); // Initialization of Wealth function
+    
+    // Value Function Iteration Algorithm
+    Parms_.V0 = (REAL *) malloc(NKGRID*sizeof(REAL));
+    Parms_.V  = (REAL *) malloc(NKGRID*sizeof(REAL));
+    
+    InitializationV(&Parms_); // Initialization of Value function
+    
+    
+    Parms_.TOLL_V = 1e-10;
+    
+    /*
+    REAL metric = 1000000000;
+    
+    while(metric>Parms_.TOLL_V){
+        
+        
+        // 1. Value Function Iteration Step
+        // V1 = T (V0)
+        
+        // First For loop over capital state
+        //V1[k] = T (V0)
+        for(int ik = 0;ik < NKGRID;ik++){
+            
+            REAL wealth = Parms_.wealth[ik];
+            
+            for(int ikp = 0;ikp < NKGRID;ikp++){
+                
+                REAL kprime = Parms_.kgrid[ikp];
+                
+                // Objective Function
+                // 1. Return Function
+                REAL cons = wealth - kprime;
+                // CRRA utility
+                pow(cons,);
+                
+                
+                //  Non negativity constraint here
+                
+                // 2. Continuation Value
+                
+                
+                
+                
+            }
+            
+            // Second For Loop: Peak Finding algorithm: Find the maximum
+            
+            
+        }
+        
+            // Second For Loop: Peak Finding algorithm: Find the maximum
+            
+        
+        
+        // Update Metric:
+        // metric = rho(V1,V0);
+        
+        
+    }
+    
+    */
     
     
     
     // Free the memory (otherwise LEAKS error)
     free(Parms_.kgrid);
+    free(Parms_.wealth);
+    free(Parms_.V);
+    free(Parms_.V0);
     
     return 1;
     

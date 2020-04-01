@@ -11,6 +11,7 @@
 
 typedef double REAL;
 
+
 // Definitions of the state space
 
 // Capital Grid
@@ -33,11 +34,53 @@ typedef struct{
     
     // 2. Grids
     REAL *kgrid; // Capital Grid
+    REAL *wealth;// Wealth Grid
+    
+    // 3. Convergence tolerance
+    REAL TOLL_V;
+    
+    
     REAL *V;     // Value Function
     REAL *V0;    // Value Function Guess
     int  *gk;    // Policy Function
     
 } Parms_type;
+
+
+// STEP 1. Declaration of Functions
+// RETURN_TYPE Function_ID(Input Arguments)
+// RETURN_TYPE Function_ID(TYPE_1 Variable_ID_1,TYPE_2 Variable_ID_2)
+//void InitializationW(Parms_type *);
+void InitializationW(Parms_type *Parmsaddr_){
+    
+    //wealth = kα + (1 − δ)k;
+    // Parmsaddr->wealth Go to the address in Parmsaddr and access (->) the field wealth
+    printf("Print Wealth Grid");
+    for(int ik = 0;ik < NKGRID;ik++){
+        Parmsaddr_->wealth[ik] = pow(Parmsaddr_->kgrid[ik],Parmsaddr_->alpha)+(1. - Parmsaddr_->delta)*Parmsaddr_->kgrid[ik];
+        printf("W: %5.3lf k %5.3lf\n",Parmsaddr_->wealth[ik],Parmsaddr_->kgrid[ik]);
+    }
+    //Parmsaddr_->kgrid = &Parmsaddr_->kgrid[0]
+    printf("\n");
+}
+
+
+void InitializationV(Parms_type *Parmsaddr_){
+    
+    //wealth = kα + (1 − δ)k;
+    // Parmsaddr->wealth Go to the address in Parmsaddr and access (->) the field wealth
+    printf("Print Value Function\n");
+    for(int ik = 0;ik < NKGRID;ik++){
+        Parmsaddr_->V0[ik] = Parmsaddr_->wealth[ik];
+    }
+    //Parmsaddr_->kgrid = &Parmsaddr_->kgrid[0]
+    printf("\n");
+}
+
+
+
+
+
 
 
 #endif /* usr_decl_h */
