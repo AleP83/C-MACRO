@@ -15,9 +15,9 @@ typedef double REAL;
 // Definitions of the state space
 
 // Capital Grid
-const int NKGRID = 10;  // Size of capital grid
+const int NKGRID = 100;  // Size of capital grid
 const REAL KMIN = 0.01; // Minimum of the capital grid
-const REAL KMAX = 100.; // Maximum of the capital grid
+const REAL KMAX = 1000.; // Maximum of the capital grid
 
 
 // Declaration

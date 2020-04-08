@@ -123,6 +123,16 @@ int main(){
         
     }
     
+    printf("Value Function:\n");
+    for(int ik=0;ik<NKGRID;ik++){
+        printf("%lf ", Parms_.V[ik]);
+    }
+    printf("\n");
+    printf("Policy Functions:\n");
+    for(int ik=0;ik<NKGRID;ik++){
+        printf("When the index on the capital state is %d I choose index %d\n",ik,Parms_.Gk[ik]);
+    }
+    
     
     
     /*
