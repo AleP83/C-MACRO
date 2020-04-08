@@ -42,7 +42,7 @@ typedef struct{
     
     REAL *V;     // Value Function
     REAL *V0;    // Value Function Guess
-    int  *gk;    // Policy Function
+    int  *Gk;    // Policy Function
     
 } Parms_type;
 
@@ -71,7 +71,7 @@ void InitializationV(Parms_type *Parmsaddr_){
     // Parmsaddr->wealth Go to the address in Parmsaddr and access (->) the field wealth
     printf("Print Value Function\n");
     for(int ik = 0;ik < NKGRID;ik++){
-        Parmsaddr_->V0[ik] = Parmsaddr_->wealth[ik];
+        Parmsaddr_->V0[ik] = Parmsaddr_->wealth[ik]; //1./(1.-Parmsaddr_->sigma)*pow(Parmsaddr_->wealth[ik],1-Parmsaddr_->sigma);
     }
     //Parmsaddr_->kgrid = &Parmsaddr_->kgrid[0]
     printf("\n");
